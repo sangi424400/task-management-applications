@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 550px;
+  background: white;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+h1 {
+  text-align: center;
+  color: #0077ff;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+input {
+  width: 95%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #005fd1;
+}
+
+.logout {
+  background: red;
+  margin-top: 20px;
+}
+
+.logout:hover {
+  background: darkred;
+}
+
+.task-form {
+  margin-bottom: 15px;
+}
+
+li {
+  background: #eee;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.task-actions {
+  margin-top: 8px;
+}
+
+.task-actions button {
+  width: auto;
+  padding: 8px 12px;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.complete-btn {
+  background: green;
+}
+
+.delete-btn {
+  background: red;
+}
+
+.edit-btn {
+  background: orange;
+}
+
+.complete-btn:hover {
+  background: darkgreen;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+.edit-btn:hover {
+  background: darkorange;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
