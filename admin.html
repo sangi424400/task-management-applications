@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <h1>Admin Panel</h1>
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Add Product</h2>
+
+  <input id="pname" placeholder="Product Name"><br><br>
+  <input id="pprice" placeholder="Price"><br><br>
+  <input id="pimage" placeholder="Image URL"><br><br>
+  <input id="pstock" placeholder="Stock"><br><br>
+
+  <button onclick="addProduct()">Add Product</button>
+
+  <h2>All Products</h2>
+  <div id="productList"></div>
+</div>
+
+<script>
+const API_URL = "http://localhost:5000/api";
+
+async function addProduct(){
+  const token = localStorage.getItem("token");
+
+  const name = document.getElementById("pname").value;
+  const price = document.getElementById("pprice").value;
+  const image = document.getElementById("pimage").value;
+  const stock = document.getElementById("pstock").value;
+
+  const res = await fetch(`${API_URL}/products`, {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+    body: JSON.stringify({name, price, image, stock})
+  });
+
+  const data = await res.json();
+  alert("Product Added");
+  loadProducts();
+}
+
+async function loadProducts(){
+  const res = await fetch(`${API_URL}/products`);
+  const products = await res.json();
+
+  const list = document.getElementById("productList");
+  list.innerHTML="";
+
+  products.forEach(p=>{
+    const div = document.createElement("div");
+    div.className="product";
+    div.innerHTML=`
+      <h3>${p.name}</h3>
+      <p>₹${p.price}</p>
+    `;
+    list.appendChild(div);
+  })
+}
+loadProducts();
+</script>
+
+</body>
+</html>
